@@ -1,70 +1,116 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI效率指南 | 用AI每天节省2小时</title>
-    <meta name="description" content="专业的AI工具评测、提示词教程、效率提升指南。帮你用AI每天节省2小时。">
-    <style>
-        :root {--bg:#fafafa;--text:#1a1a2e;--primary:#6C5CE7;--accent:#00CECE;}
-        *{margin:0;padding:0;box-sizing:border-box;}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;}
-        header{background:white;border-bottom:1px solid #e8e8e8;padding:16px 24px;text-align:center;position:sticky;top:0;z-index:100;}
-        .logo{font-size:22px;font-weight:800;color:var(--primary);text-decoration:none;}
-        .logo span{color:var(--text);}
-        .hero{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:80px 24px;text-align:center;}
-        .hero h1{font-size:clamp(28px,4vw,48px);font-weight:800;margin-bottom:16px;}
-        .hero p{font-size:18px;opacity:0.9;max-width:500px;margin:0 auto 24px;}
-        .container{max-width:1000px;margin:0 auto;padding:48px 24px;}
-        .article-card{background:white;border:1px solid #e8e8e8;border-radius:16px;padding:28px;margin-bottom:20px;transition:all 0.2s;}
-        .article-card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.08);}
-        .article-card .cat{font-size:13px;font-weight:600;color:var(--primary);text-transform:uppercase;margin-bottom:8px;}
-        .article-card h2{font-size:22px;margin-bottom:8px;color:var(--text);}
-        .article-card p{color:#666;font-size:15px;margin-bottom:12px;}
-        .article-card .meta{font-size:13px;color:#999;}
-        .cta-box{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:32px;border-radius:16px;text-align:center;margin-top:40px;}
-        .cta-box h3{font-size:24px;margin-bottom:8px;}
-        .cta-box a{display:inline-block;margin-top:16px;background:white;color:var(--primary);padding:12px 32px;border-radius:10px;text-decoration:none;font-weight:700;}
-        footer{text-align:center;padding:40px 24px;color:#999;font-size:14px;border-top:1px solid #e8e8e8;}
-    </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AI效率指南 | 用AI每天节省2小时</title>
+<meta name="description" content="AI工具评测、提示词教程、效率提升指南。帮你用AI每天节省2小时。">
+<meta name="keywords" content="AI工具,AI写作,AI赚钱,效率提升,提示词">
+<style>
+:root{--primary:#6C5CE7;--accent:#00CECE;--bg:#fafafa;--text:#1a1a2e}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;max-width:860px;margin:0 auto;padding:20px}
+header{text-align:center;padding:30px 0 20px;border-bottom:2px solid #eee;margin-bottom:30px}
+header h1{font-size:28px;color:var(--primary)}
+header p{color:#888;font-size:15px;margin-top:6px}
+.hero{text-align:center;padding:40px 20px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px;margin-bottom:30px}
+.hero h2{font-size:26px;margin-bottom:10px;color:#fff}
+.hero p{opacity:.9;font-size:16px;margin-bottom:20px;color:#fff}
+.articles{margin-bottom:30px}
+.section-title{font-size:20px;color:var(--primary);border-bottom:2px solid var(--primary);padding-bottom:8px;margin-bottom:16px}
+a.article-link{text-decoration:none;color:inherit;display:block}
+.article-card{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:22px;margin:14px 0;transition:all .2s;cursor:pointer}
+.article-card:hover{border-color:var(--primary);box-shadow:0 6px 24px rgba(108,92,231,.12);transform:translateY(-2px)}
+.article-card .cat{font-size:12px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.article-card h3{font-size:19px;margin-bottom:6px;color:#333}
+.article-card p{color:#666;font-size:14px;margin-bottom:8px}
+.article-card .meta{font-size:12px;color:#aaa}
+.cta{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;padding:30px;border-radius:14px;text-align:center;margin:30px 0}
+.cta h2{color:#fff;font-size:24px;margin-bottom:8px;margin-top:0}
+.cta p{margin-bottom:12px;opacity:.9;color:#fff}
+.cta .price{font-size:28px;font-weight:800;color:#FFD700;margin:12px 0}
+.cta button{display:inline-block;background:#fff;color:var(--primary);padding:14px 36px;border-radius:10px;font-size:17px;font-weight:700;border:none;cursor:pointer;transition:transform .2s}
+.cta button:hover{transform:scale(1.05)}
+.payment-info{background:rgba(0,0,0,.15);border-radius:8px;padding:14px;margin-top:14px;font-size:12px;word-break:break-all;text-align:left;line-height:1.8}
+.payment-info strong{color:#FFD700}
+.copied{color:#86EFAC;font-size:12px;display:none}
+footer{text-align:center;color:#aaa;font-size:13px;padding:20px 0;border-top:1px solid #eee;margin-top:30px}
+footer a{color:var(--primary);text-decoration:none}
+</style>
 </head>
 <body>
-<header><a href="/" class="logo">AI<span>效率指南</span></a></header>
-<section class="hero">
-    <h1>用AI每天节省2小时，<br>把时间花在真正重要的事上</h1>
-    <p>最实用的AI工具评测、提示词教程和效率提升指南。</p>
-</section>
-<div class="container">
-    <article class="article-card">
-        <div class="cat">AI工具评测</div>
-        <h2>2026年最好用的10款免费AI写作工具：从博客到论文全覆盖</h2>
-        <p>我们测试了30+款AI写作工具，筛选出10款真正免费且好用的。</p>
-        <div class="meta">📅 2026-07-25 · ⏱ 8分钟 · 🏷 AI写作, 工具推荐</div>
-    </article>
-    <article class="article-card">
-        <div class="cat">提示词教程</div>
-        <h2>7个让你工作效率翻倍的ChatGPT提示词模板</h2>
-        <p>一套经过上百次迭代优化的提示词框架，覆盖高频场景。</p>
-        <div class="meta">📅 2026-07-23 · ⏱ 6分钟 · 🏷 Prompt, 效率</div>
-    </article>
-    <article class="article-card">
-        <div class="cat">赚钱思路</div>
-        <h2>5种用AI零成本开始的副业：从月入500到5000的实战路径</h2>
-        <p>不需要启动资金，不需要专业技能。这5种AI副业每天只需1-2小时。</p>
-        <div class="meta">📅 2026-07-20 · ⏱ 8分钟 · 🏷 副业, AI赚钱</div>
-    </article>
-    <article class="article-card">
-        <div class="cat">效率技巧</div>
-        <h2>用AI搭建你的自动化工作流：把8小时工作缩短到2小时</h2>
-        <p>结合AI工具打造自动化的知识管理和内容生产系统。</p>
-        <div class="meta">📅 2026-07-18 · ⏱ 10分钟 · 🏷 自动化, 效率</div>
-    </article>
-    <div class="cta-box">
-        <h3>200+ 精选AI提示词模板</h3>
-        <p>覆盖商业、编程、营销、学术等10大领域，复制即用</p>
-        <a href="#">¥29.9 立即获取</a>
-    </div>
+<header>
+<h1>AI效率指南</h1>
+<p>用AI每天节省2小时，把时间花在真正重要的事上</p>
+</header>
+
+<div class="hero">
+<h2>最实用的AI工具评测与效率指南</h2>
+<p>AI写作、AI赚钱、AI自动化——帮你在AI时代领先一步</p>
 </div>
-<footer><p>AI效率指南 © 2026 · 本网站包含联盟营销链接</p></footer>
+
+<div class="articles">
+<div class="section-title">最新文章</div>
+
+<a class="article-link" href="content/seo-article-1-ai-writing-tools.html">
+<div class="article-card">
+<div class="cat">AI工具评测</div>
+<h3>2026年最好用的10款免费AI写作工具：从博客到论文全覆盖</h3>
+<p>我们测试了30+款AI写作工具，精选出10款真正免费且好用的。</p>
+<div class="meta">2026-07-25 · 8分钟阅读 · AI写作, 工具推荐</div>
+</div>
+</a>
+
+<a class="article-link" href="content/seo-article-2-ai-side-hustle.html">
+<div class="article-card">
+<div class="cat">赚钱思路</div>
+<h3>5种零成本AI副业：2026年从月入500到5000的实战路径</h3>
+<p>不需要启动资金。5种AI驱动的副业方式，每天只需1-2小时。</p>
+<div class="meta">2026-07-26 · 10分钟阅读 · AI副业, 赚钱</div>
+</div>
+</a>
+
+<a class="article-link" href="content/seo-article-3-ai-automation-workflow.html">
+<div class="article-card">
+<div class="cat">效率技巧</div>
+<h3>用AI搭建全自动工作流：把每天8小时缩短到2小时的实操指南</h3>
+<p>手把手教你用免费AI工具搭建自动化工作流，每天节省6小时。</p>
+<div class="meta">2026-07-24 · 10分钟阅读 · 自动化, 效率</div>
+</div>
+</a>
+
+<a class="article-link" href="content/seo-article-4-free-ai-video-tools.html">
+<div class="article-card">
+<div class="cat">AI工具评测</div>
+<h3>2026年8款免费AI视频生成工具：零基础也能做专业短视频</h3>
+<p>实测8款完全免费的AI视频工具，从文生视频到数字人全覆盖。</p>
+<div class="meta">2026-07-22 · 8分钟阅读 · AI视频, 工具</div>
+</div>
+</a>
+</div>
+
+<div class="cta">
+<h2>200+ 精选AI提示词模板</h2>
+<p>覆盖商业、编程、营销、学术等10大领域。每个提示词都经过多模型实测优化，复制即用，告别反复调教AI的烦恼。</p>
+<p class="price">¥29.9 终身使用 + 免费更新</p>
+<button onclick="document.getElementById('pay').scrollIntoView({behavior:'smooth'});document.getElementById('pay').style.display='block'">立即购买</button>
+<div id="pay" style="display:none">
+<div class="payment-info">
+<strong>付款方式：</strong>USDT / USDC / ETH（支持 ETH、BSC、Polygon 等网络）<br>
+<strong>收款地址：</strong><br>
+<code id="addr" style="font-size:13px;word-break:break-all">0xb650C95CF7E494d78E0142049b1b2cC92F49dfB6</code>
+<button onclick="navigator.clipboard.writeText(document.getElementById('addr').textContent);var e=document.getElementById('copied');e.style.display='inline';setTimeout(function(){e.style.display='none'},2000)" style="background:var(--primary);color:#fff;border:none;padding:6px 16px;border-radius:6px;cursor:pointer;font-size:13px;margin-top:6px">复制地址</button>
+<span id="copied" class="copied">已复制！</span><br><br>
+<strong>付款后：</strong>发送交易哈希(TxHash)到<br>
+<code style="font-size:13px">aiagent.payments@proton.me</code><br>
+我们收到后1-5分钟内发送下载链接<br><br>
+<strong>金额：</strong>4.00 USDT/USDC 或等值 ETH
+</div>
+</div>
+</div>
+
+<footer>
+<p>AI效率指南 © 2026 · <a href="https://github.com/khandg6834678-coder/ai-money">GitHub</a></p>
+<p style="margin-top:4px">支持加密货币支付 · 7天无条件退款</p>
+</footer>
 </body>
 </html>
