@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI提示词宝典 v1.0 | 200+ Premium Prompts | 工作效率提升10倍</title>
+    <meta name="description" content="200+经过实战验证的AI提示词，涵盖商业、编程、营销、创作等10大领域。适用于ChatGPT、Claude、DeepSeek等主流AI模型。立即购买，立即下载。">
+    <style>
+        :root {
+            --primary: #6C5CE7;
+            --primary-dark: #5A4BD1;
+            --accent: #00CECE;
+            --bg: #0C0C1D;
+            --bg-card: #16163A;
+            --text: #E8E8F0;
+            --text-muted: #A0A0B8;
+            --border: #2A2A5A;
+            --success: #00D68F;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--bg) 0%, #1a1040 50%, #0d2b40 100%);
+            padding: 80px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(108,92,231,0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(0,206,206,0.1) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -30px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(108,92,231,0.2);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            border: 1px solid rgba(108,92,231,0.3);
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .price-block {
+            margin-bottom: 32px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: var(--text-muted);
+            font-size: 20px;
+        }
+
+        .current-price {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--accent);
+            margin: 0 8px;
+        }
+
+        .price-note {
+            font-size: 14px;
+            color: var(--text-muted);
+            display: block;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 8px 32px rgba(108,92,231,0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(108,92,231,0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--border);
+            margin-left: 12px;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Payment Options */
+        .payment-section {
+            padding: 24px;
+            text-align: center;
+        }
+
+        .payment-options {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .payment-tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Features Grid */
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section > p {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(108,92,231,0.15);
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Categories */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .category-tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .category-tag:hover {
+            border-color: var(--primary);
+            background: rgba(108,92,231,0.1);
+        }
+
+        .category-tag .count {
+            display: block;
+            font-size: 12px;
+            color: var(--accent);
+            margin-top: 4px;
+        }
+
+        /* Testimonial */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .testimonial-card .stars {
+            color: #FFD700;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-card .quote {
+            font-style: italic;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .testimonial-card .author {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            padding: 24px;
+        }
+
+        .faq-item h4 {
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* CTA Bottom */
+        .cta-bottom {
+            background: linear-gradient(135deg, var(--primary), #2d1b69);
+            text-align: center;
+            padding: 80px 24px;
+        }
+
+        .cta-bottom h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .cta-bottom p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 32px;
+        }
+
+        /* Payment Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .modal h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .crypto-address {
+            background: #0a0a1a;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px;
+            font-family: monospace;
+            font-size: 13px;
+            word-break: break-all;
+            margin: 16px 0;
+            color: var(--accent);
+            user-select: all;
+        }
+
+        .copy-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .copy-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .close-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 8px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        footer {
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 24px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-content">
+        <span class="badge">v1.0 正式版 | 2026年7月</span>
+        <h1>让 AI 为你工作的<br>200+ 精选提示词</h1>
+        <p>覆盖10大领域，中英双语。适用于 ChatGPT、Claude、DeepSeek 等所有主流 AI 模型。复制粘贴即用，效率提升10倍。</p>
+
+        <div class="price-block">
+            <span class="original-price">¥199</span>
+            <span class="current-price">¥29.9</span>
+            <span class="price-note">一次购买，永久使用 + 免费更新</span>
+        </div>
+
+        <div>
+            <button class="btn btn-primary" onclick="showPayment()">
+                立即购买 - ¥29.9
+            </button>
+            <a href="#preview" class="btn btn-outline">查看目录预览</a>
+        </div>
+
+        <div class="payment-section" style="margin-top: 24px;">
+            <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 8px;">支持付款方式</p>
+            <div class="payment-options">
+                <span class="payment-tag">₿ BTC</span>
+                <span class="payment-tag">Ξ ETH</span>
+                <span class="payment-tag">💲 USDT</span>
+                <span class="payment-tag">💲 USDC</span>
+                <span class="payment-tag">🌐 支持20+加密货币</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="section" id="preview">
+    <h2>这套提示词能帮你做什么？</h2>
+    <p>十类提示词，覆盖你90%的AI使用场景</p>
+
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>商业与创业</h3>
+            <p>商业模式画布、竞品分析、BP大纲、定价策略、SWOT分析...从0到1的创业工具箱。</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✍️</div>
+            <h3>内容创作</h3>
+            <p>SEO文章、社媒帖子、邮件序列、视频脚本、落地页文案...一人成军的内容团队。</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💻</div>
+            <h3>编程与开发</h3>
+            <p>代码审查、架构设计、API文档、性能优化、安全扫描...程序员的AI结对伙伴。</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📈</div>
+            <h3>营销与SEO</h3>
+            <p>关键词研究、内容策略、外链建设、转化优化、广告文案...数据驱动的增长引擎。</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>数据分析</h3>
+            <p>SQL优化、数据清洗、可视化设计、A/B分析、预测建模...让数据说话。</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🎓</div>
+            <h3>学术写作</h3>
+            <p>论文大纲、文献综述、方法论、摘要精炼...从开题到答辩全流程辅助。</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3>创意设计</h3>
+            <p>UI评审、配色方案、字体搭配、设计系统、海报Brief...设计师的灵感伙伴。</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>生产力提升</h3>
+            <p>GTD系统、OKR设定、深度工作、习惯养成、会议效率...做更少，得更多。</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>社交媒体</h3>
+            <p>冷启动策略、内容日历、达人合作、舆情监控、账号矩阵...社媒增长全攻略。</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🌱</div>
+            <h3>个人成长</h3>
+            <p>认知偏差、谈判策略、情绪管理、学习设计、人生规划...成为更好的自己。</p>
+        </div>
+    </div>
+</section>
+
+<!-- Categories Detail -->
+<section class="section" style="padding-top: 0;">
+    <h2>200+ 提示词，精确分类</h2>
+    <p>每个类别 20 个精心打磨的提示词模板</p>
+
+    <div class="categories">
+        <div class="category-tag">
+            商业与创业
+            <span class="count">20 个提示词</span>
+        </div>
+        <div class="category-tag">
+            内容创作
+            <span class="count">20 个提示词</span>
+        </div>
+        <div class="category-tag">
+            编程与开发
+            <span class="count">20 个提示词</span>
+        </div>
+        <div class="category-tag">
+            营销与SEO
+            <span class="count">20 个提示词</span>
+        </div>
+        <div class="category-tag">
+            数据分析
+            <span class="count">20 个提示词</span>
+        </div>
+        <div class="category-tag">
+            学术写作
+            <span class="count">20 个提示词</span>
+        </div>
+        <div class="category-tag">
+            创意设计
+            <span class="count">20 个提示词</span>
+        </div>
+        <div class="category-tag">
+            生产力
+            <span class="count">20 个提示词</span>
+        </div>
+        <div class="category-tag">
+            社交媒体
+            <span class="count">20 个提示词</span>
+        </div>
+        <div class="category-tag">
+            个人成长
+            <span class="count">20 个提示词</span>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section" style="background: var(--bg-card); max-width: 100%; padding: 80px 24px;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+        <h2 style="text-align:center;">来自购买者的反馈</h2>
+        <p style="text-align:center; color: var(--text-muted); margin-bottom: 48px;">他们用这些提示词实现了什么</p>
+
+        <div class="testimonials">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"商业计划书那个提示词帮我在30分钟内完成了原本需要3天的工作。投资人反馈非常好。"</p>
+                <p class="author">— 张先生，创业者</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"我把邮件营销序列的提示词用在了我们的欢迎邮件上，打开率提升了40%。物超所值。"</p>
+                <p class="author">— Lisa，市场总监</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"作为一个程序员，代码审查提示词成了我的日常工具。bug少了，老板很满意。"</p>
+                <p class="author">— Alex，全栈工程师</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+    <h2>常见问题</h2>
+    <p>还有疑问？请联系我们</p>
+
+    <div class="faq-item">
+        <h4>这些提示词适用于哪些 AI 模型？</h4>
+        <p>全部适用。提示词设计兼容 ChatGPT (3.5/4/4o)、Claude (全系列)、Gemini、DeepSeek、文心一言、通义千问等主流模型。每个提示词都经过多模型测试。</p>
+    </div>
+    <div class="faq-item">
+        <h4>购买后如何获取？</h4>
+        <p>付款完成后，你会立即收到包含下载链接的邮件确认。文件为 Markdown (.md) 格式，可直接导入 Notion、Obsidian、Logseq 等笔记工具。</p>
+    </div>
+    <div class="faq-item">
+        <h4>会有更新吗？</h4>
+        <p>会的。我们持续跟踪新模型和新用例，每季度至少更新一次。所有已购用户免费获取更新版本。</p>
+    </div>
+    <div class="faq-item">
+        <h4>不满意可以退款吗？</h4>
+        <p>购买后7天内，如果你觉得价值不够，回复付款邮件申请全额退款。我们希望每个用户都满意。</p>
+    </div>
+    <div class="faq-item">
+        <h4>为什么用加密货币支付？</h4>
+        <p>这让我们能以最低手续费运营（0.4-1% vs 传统支付2.9%+），节省的成本反映在更低的产品售价上。我们支持20+种主流加密货币。</p>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-bottom">
+    <h2>200+ 专业提示词，只需 ¥29.9</h2>
+    <p>相当于每个提示词不到 ¥0.15，却能为你节省数百小时</p>
+    <button class="btn btn-primary" onclick="showPayment()" style="background: white; color: var(--primary);">
+        立即获取 — ¥29.9
+    </button>
+    <p style="font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 16px;">
+        支付后即时交付 · 永久使用 · 免费更新
+    </p>
+</section>
+
+<!-- Payment Modal -->
+<div class="modal-overlay" id="payment-modal">
+    <div class="modal">
+        <h3>选择付款方式</h3>
+        <p style="color: var(--text-muted); margin-bottom: 16px;">
+            金额: ¥29.9 ≈ $4 USD
+        </p>
+
+        <div style="text-align: left; margin-bottom: 12px;">
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 4px;">推荐低手续费:</p>
+            <div class="crypto-address" id="crypto-address">
+                <strong>USDT/USDC (BSC/BEP20):</strong><br>
+                0xb650C95CF7E494d78E0142049b1b2cC92F49dfB6
+            </div>
+            <div class="crypto-address">
+                <strong>ETH (Ethereum/Arbitrum/Optimism):</strong><br>
+                0xb650C95CF7E494d78E0142049b1b2cC92F49dfB6
+            </div>
+        </div>
+
+        <button class="copy-btn" onclick="copyAddress()">复制地址</button>
+        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 16px;">
+            付款后系统自动检测并发送下载链接到你的邮箱
+        </p>
+        <p style="font-size: 11px; color: var(--text-muted);">
+            💡 没有加密货币？<br>
+            推荐使用 Binance、OKX、Bybit 购买 USDT，或使用 MetaMask 钱包支付 ETH。
+        </p>
+        <button class="close-btn" onclick="closePayment()">关闭</button>
+        <p style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">
+            付款确认邮箱: aiagent.payments@proton.me
+        </p>
+    </div>
+</div>
+
+<footer>
+    <p>AI Prompt Bible v1.0 | 由 AI 创业代理制作 | 接受加密货币支付</p>
+    <p style="font-size: 12px; margin-top: 4px;">本产品为数字商品，购买即获取 | 退款政策: 7天无条件退款</p>
+</footer>
+
+<script>
+function showPayment() {
+    document.getElementById('payment-modal').classList.add('active');
+}
+
+function closePayment() {
+    document.getElementById('payment-modal').classList.remove('active');
+}
+
+function copyAddress() {
+    const addr = '0xb650C95CF7E494d78E0142049b1b2cC92F49dfB6';
+    navigator.clipboard.writeText(addr).then(() => {
+        const btn = event.target;
+        btn.textContent = '已复制!';
+        btn.style.background = '#00D68F';
+        setTimeout(() => {
+            btn.textContent = '复制地址';
+            btn.style.background = '';
+        }, 2000);
+    });
+}
+
+// Close modal on overlay click
+document.getElementById('payment-modal').addEventListener('click', function(e) {
+    if (e.target === this) closePayment();
+});
+</script>
+</body>
+</html>

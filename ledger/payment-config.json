@@ -1,0 +1,55 @@
+{
+  "version": "1.0",
+  "merchant_info": {
+    "name": "AI Startup Agent",
+    "email": "aiagent.payments@proton.me",
+    "description": "Digital products and AI services"
+  },
+  "wallet_addresses": {
+    "ETH": "0xb650C95CF7E494d78E0142049b1b2cC92F49dfB6",
+    "networks": [
+      "Ethereum",
+      "BSC",
+      "Polygon",
+      "Arbitrum",
+      "Optimism",
+      "Base"
+    ]
+  },
+  "payment_gateways": {
+    "primary": {
+      "name": "OrbChain",
+      "api_endpoint": "https://orbchain.io/v1",
+      "fee": "0.4%",
+      "api_key": "YOUR_ORBCHAIN_API_KEY_HERE",
+      "status": "pending_registration"
+    },
+    "backup": {
+      "name": "WolvPay",
+      "api_endpoint": "https://www.wolvpay.com/api/v1",
+      "fee": "1%",
+      "api_key": "YOUR_WOLVPAY_API_KEY_HERE",
+      "status": "pending_registration"
+    }
+  },
+  "products": [
+    {
+      "id": "prompt-bible-v1",
+      "name": "AI Prompt Bible - 200+ Premium Prompts",
+      "price_usd": 4.0,
+      "price_cny": 29.9,
+      "file": "ai-prompt-bible-200plus.md",
+      "delivery": "instant_download"
+    }
+  ],
+  "payment_flow": {
+    "description": "Customer pays crypto \u2192 Gateway confirms \u2192 Deliver product",
+    "supported_coins": [
+      "USDT_BEP20",
+      "USDC_BEP20",
+      "ETH",
+      "BTC_LN"
+    ],
+    "recommended_for_small_payments": "BSC/BEP20 (fees < $0.10)"
+  }
+}

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI效率指南 | 用AI提升工作与生活质量</title>
+    <meta name="description" content="专业的AI工具评测、提示词教程、效率提升指南。帮你用AI每天节省2小时。">
+    <style>
+        :root {
+            --bg: #fafafa;
+            --text: #1a1a2e;
+            --text-muted: #666;
+            --primary: #6C5CE7;
+            --border: #e8e8e8;
+            --card-bg: #fff;
+            --accent: #00CECE;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--text);
+        }
+
+        nav a {
+            margin-left: 24px;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(28px, 4vw, 48px);
+            font-weight: 800;
+            margin-bottom: 16px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        .hero .sub-form {
+            display: flex;
+            max-width: 450px;
+            margin: 0 auto;
+            gap: 8px;
+        }
+
+        .hero input {
+            flex: 1;
+            padding: 14px 20px;
+            border-radius: 12px;
+            border: none;
+            font-size: 16px;
+        }
+
+        .hero button {
+            padding: 14px 28px;
+            background: var(--accent);
+            color: #1a1a2e;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 48px 24px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .container { grid-template-columns: 1fr; }
+        }
+
+        /* Articles */
+        .article-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 24px;
+            transition: all 0.2s;
+        }
+
+        .article-card:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+
+        .article-card .category {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .article-card h2 {
+            font-size: 22px;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .article-card h2 a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .article-card h2 a:hover {
+            color: var(--primary);
+        }
+
+        .article-card .excerpt {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+
+        .article-card .meta {
+            font-size: 13px;
+            color: #999;
+        }
+
+        .article-card .meta span {
+            margin-right: 16px;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .sidebar-widget h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .sidebar-widget ul {
+            list-style: none;
+        }
+
+        .sidebar-widget ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .sidebar-widget ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .sidebar-widget ul li a:hover {
+            color: var(--primary);
+        }
+
+        .tool-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .tool-item h4 {
+            font-size: 15px;
+        }
+
+        .tool-item p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 48px 24px;
+            margin-top: 24px;
+            border-radius: 16px;
+        }
+
+        .cta-banner h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .cta-banner p {
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .cta-banner .btn-white {
+            background: white;
+            color: var(--primary);
+            padding: 12px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            color: #999;
+            font-size: 14px;
+            border-top: 1px solid var(--border);
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <a href="/" class="logo">AI<span>效率指南</span></a>
+        <nav>
+            <a href="#">首页</a>
+            <a href="#">AI工具</a>
+            <a href="#">提示词</a>
+            <a href="#">效率</a>
+            <a href="#">关于</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>用AI每天节省2小时，<br>把时间花在真正重要的事上</h1>
+    <p>最实用的AI工具评测、提示词教程和效率提升指南。让AI替你干重复活。</p>
+    <div class="sub-form">
+        <input type="email" placeholder="输入邮箱，获取每周AI效率技巧">
+        <button>订阅</button>
+    </div>
+</section>
+
+<div class="container">
+    <main>
+        <!-- Article 1: SEO Optimized -->
+        <article class="article-card">
+            <div class="category">AI工具评测</div>
+            <h2><a href="#">2026年最好的10款免费AI写作工具：从博客到论文全覆盖</a></h2>
+            <p class="excerpt">我们测试了30+款AI写作工具，筛选出10款真正免费且好用的。无论你是写博客、论文、还是营销文案，这份清单都能帮你找到最适合的工具。</p>
+            <div class="meta">
+                <span>📅 2026-07-25</span>
+                <span>⏱ 8分钟阅读</span>
+                <span>🏷 ChatGPT, Claude, 写作</span>
+            </div>
+        </article>
+
+        <article class="article-card">
+            <div class="category">提示词教程</div>
+            <h2><a href="#">7个让你工作效率翻倍的ChatGPT提示词模板</a></h2>
+            <p class="excerpt">不是"帮我写一篇文章"这样简单的指令。这是一套经过上百次迭代优化的提示词框架，涵盖邮件处理、会议总结、数据分析等高频场景。</p>
+            <div class="meta">
+                <span>📅 2026-07-23</span>
+                <span>⏱ 6分钟阅读</span>
+                <span>🏷 Prompt, 效率, ChatGPT</span>
+            </div>
+        </article>
+
+        <article class="article-card">
+            <div class="category">效率技巧</div>
+            <h2><a href="#">如何用AI搭建你的第二大脑：从信息收集到知识输出</a></h2>
+            <p class="excerpt">结合Obsidian和AI工具，打造一个自动化的知识管理系统。灵感一闪不再流失，阅读笔记自动整理，写作素材随用随取。</p>
+            <div class="meta">
+                <span>📅 2026-07-20</span>
+                <span>⏱ 10分钟阅读</span>
+                <span>🏷 知识管理, Notion, Obsidian</span>
+            </div>
+        </article>
+
+        <article class="article-card">
+            <div class="category">AI工具评测</div>
+            <h2><a href="#">Claude vs ChatGPT vs DeepSeek：2026年三大AI模型全面对比</a></h2>
+            <p class="excerpt">从编程、写作、分析、创意到价格，全方位实测对比三大主流AI模型。帮你决定该为哪个模型付费。</p>
+            <div class="meta">
+                <span>📅 2026-07-18</span>
+                <span>⏱ 12分钟阅读</span>
+                <span>🏷 对比评测, AI模型</span>
+            </div>
+        </article>
+
+        <article class="article-card">
+            <div class="category">赚钱思路</div>
+            <h2><a href="#">5种用AI零成本开始的副业：从月入500到5000的实战路径</a></h2>
+            <p class="excerpt">不需要启动资金，不需要专业技能。这5种AI驱动的副业方式，每天只需投入1-2小时，就能看到实际收入。</p>
+            <div class="meta">
+                <span>📅 2026-07-15</span>
+                <span>⏱ 8分钟阅读</span>
+                <span>🏷 副业, AI赚钱, 自由职业</span>
+            </div>
+        </article>
+
+        <article class="article-card">
+            <div class="category">提示词教程</div>
+            <h2><a href="#">设计师专属：20个AI设计提示词让你的效率提升300%</a></h2>
+            <p class="excerpt">UI评审、配色方案、设计系统、LOGO Brief...这些专为设计师优化的提示词，让AI成为你最得力的设计助理。</p>
+            <div class="meta">
+                <span>📅 2026-07-12</span>
+                <span>⏱ 7分钟阅读</span>
+                <span>🏷 设计, UI/UX, Midjourney</span>
+            </div>
+        </article>
+    </main>
+
+    <aside>
+        <!-- Popular Tools -->
+        <div class="sidebar-widget">
+            <h3>🔥 推荐AI工具</h3>
+            <div class="tool-item">
+                <h4>ChatGPT</h4>
+                <p>最全面的AI助手，免费版即可满足日常需求</p>
+            </div>
+            <div class="tool-item">
+                <h4>Claude</h4>
+                <p>长文本处理和编程能力最强，200K上下文窗口</p>
+            </div>
+            <div class="tool-item">
+                <h4>DeepSeek</h4>
+                <p>国产之光，中文理解最佳，完全免费</p>
+            </div>
+            <div class="tool-item">
+                <h4>Cursor</h4>
+                <p>AI编程IDE，比Copilot更懂你的代码</p>
+            </div>
+            <div class="tool-item">
+                <h4>Midjourney</h4>
+                <p>最强AI绘画工具，创意设计的必备神器</p>
+            </div>
+        </div>
+
+        <!-- Popular Articles -->
+        <div class="sidebar-widget">
+            <h3>📖 热门文章</h3>
+            <ul>
+                <li><a href="#">→ 程序员用AI提升效率的10个场景</a></li>
+                <li><a href="#">→ 如何编写高质量AI提示词：完整指南</a></li>
+                <li><a href="#">→ AI SEO写作：让文章排到Google首页</a></li>
+                <li><a href="#">→ 学生党如何用AI轻松搞定论文</a></li>
+                <li><a href="#">→ 小企业用AI做营销的实战手册</a></li>
+            </ul>
+        </div>
+
+        <!-- Product CTA -->
+        <div class="cta-banner">
+            <h3>🎯 AI提示词宝典</h3>
+            <p>200+精选提示词模板<br>¥29.9 永久使用</p>
+            <a href="../digital-products/marketing-assets/sales-landing-page.html" class="btn-white">立即购买</a>
+        </div>
+
+        <!-- Affiliate Links -->
+        <div class="sidebar-widget">
+            <h3>🛠 值得购买的工具</h3>
+            <div class="tool-item">
+                <h4>Notion AI</h4>
+                <p>一站式笔记+AI，知识工作者的超级工具</p>
+            </div>
+            <div class="tool-item">
+                <h4>Jasper AI</h4>
+                <p>专业AI写作工具，营销团队的标配</p>
+            </div>
+            <div class="tool-item">
+                <h4>Grammarly Premium</h4>
+                <p>不只是语法检查，更是写作导师</p>
+            </div>
+        </div>
+    </aside>
+</div>
+
+<footer>
+    <p>AI效率指南 © 2026 | <a href="#">关于我们</a> | <a href="#">联系方式</a> | <a href="#">隐私政策</a></p>
+    <p style="margin-top: 8px;">本网站包含联盟营销链接。通过我们的链接购买，我们可能获得佣金，但你无需支付额外费用。</p>
+</footer>
+
+</body>
+</html>

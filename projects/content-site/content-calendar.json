@@ -1,0 +1,162 @@
+[
+  {
+    "week": 1,
+    "date_range": "07/27 - 08/02",
+    "entries": [
+      {
+        "date": "2026-07-27",
+        "type": "blog_post",
+        "title": "2026年最好用的8款免费AI视频生成工具",
+        "category": "AI工具评测",
+        "target_words": 2500,
+        "status": "planned"
+      },
+      {
+        "date": "2026-07-30",
+        "type": "blog_post",
+        "title": "从零开始的AI副业指南：5条经过验证的月入5000元路径",
+        "category": "赚钱思路",
+        "target_words": 2800,
+        "status": "planned"
+      },
+      {
+        "date": "2026-07-28",
+        "type": "social_media",
+        "platform": "小红书",
+        "status": "planned"
+      },
+      {
+        "date": "2026-07-29",
+        "type": "social_media",
+        "platform": "小红书",
+        "status": "planned"
+      },
+      {
+        "date": "2026-07-31",
+        "type": "social_media",
+        "platform": "Twitter/X",
+        "status": "planned"
+      }
+    ]
+  },
+  {
+    "week": 2,
+    "date_range": "08/03 - 08/09",
+    "entries": [
+      {
+        "date": "2026-08-03",
+        "type": "blog_post",
+        "title": "高级提示词工程：让AI输出质量提升10倍的系统方法",
+        "category": "提示词教程",
+        "target_words": 3000,
+        "status": "planned"
+      },
+      {
+        "date": "2026-08-06",
+        "type": "blog_post",
+        "title": "用AI搭建你的自动化工作流：从每天8小时到2小时的秘诀",
+        "category": "效率技巧",
+        "target_words": 2200,
+        "status": "planned"
+      },
+      {
+        "date": "2026-08-04",
+        "type": "social_media",
+        "platform": "小红书",
+        "status": "planned"
+      },
+      {
+        "date": "2026-08-05",
+        "type": "social_media",
+        "platform": "小红书",
+        "status": "planned"
+      },
+      {
+        "date": "2026-08-07",
+        "type": "social_media",
+        "platform": "Twitter/X",
+        "status": "planned"
+      }
+    ]
+  },
+  {
+    "week": 3,
+    "date_range": "08/10 - 08/16",
+    "entries": [
+      {
+        "date": "2026-08-10",
+        "type": "blog_post",
+        "title": "从零开始的AI副业指南：5条经过验证的月入5000元路径",
+        "category": "赚钱思路",
+        "target_words": 2800,
+        "status": "planned"
+      },
+      {
+        "date": "2026-08-13",
+        "type": "blog_post",
+        "title": "程序员必看：2026年6款AI编程助手的真实对比",
+        "category": "AI工具评测",
+        "target_words": 2600,
+        "status": "planned"
+      },
+      {
+        "date": "2026-08-11",
+        "type": "social_media",
+        "platform": "小红书",
+        "status": "planned"
+      },
+      {
+        "date": "2026-08-12",
+        "type": "social_media",
+        "platform": "小红书",
+        "status": "planned"
+      },
+      {
+        "date": "2026-08-14",
+        "type": "social_media",
+        "platform": "Twitter/X",
+        "status": "planned"
+      }
+    ]
+  },
+  {
+    "week": 4,
+    "date_range": "08/17 - 08/23",
+    "entries": [
+      {
+        "date": "2026-08-17",
+        "type": "blog_post",
+        "title": "用AI搭建你的自动化工作流：从每天8小时到2小时的秘诀",
+        "category": "效率技巧",
+        "target_words": 2200,
+        "status": "planned"
+      },
+      {
+        "date": "2026-08-20",
+        "type": "blog_post",
+        "title": "2026年最好用的8款免费AI视频生成工具",
+        "category": "AI工具评测",
+        "target_words": 2500,
+        "status": "planned"
+      },
+      {
+        "date": "2026-08-18",
+        "type": "social_media",
+        "platform": "小红书",
+        "status": "planned"
+      },
+      {
+        "date": "2026-08-19",
+        "type": "social_media",
+        "platform": "小红书",
+        "status": "planned"
+      },
+      {
+        "date": "2026-08-21",
+        "type": "social_media",
+        "platform": "Twitter/X",
+        "status": "planned"
+      }
+    ]
+  }
+]

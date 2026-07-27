@@ -1,0 +1,20 @@
+{
+  "merchant_name": "AI Startup Agent",
+  "created_at": "2026-07-27T10:20:52.479389",
+  "accepting": [
+    {
+      "chain": "Ethereum",
+      "address": "0xb650C95CF7E494d78E0142049b1b2cC92F49dfB6",
+      "networks": [
+        "Ethereum",
+        "BNB Chain",
+        "Polygon",
+        "Arbitrum",
+        "Optimism",
+        "Base",
+        "Avalanche"
+      ]
+    }
+  ],
+  "contact_note": "For payment issues, reply to payment confirmation email."
+}

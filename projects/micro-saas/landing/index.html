@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickAPI — 即用型AI微服务 | 文本摘要 · 翻译 · SEO分析</title>
+    <meta name="description" content="三个即用型AI API：智能文本摘要、多语翻译、SEO关键词分析。免费开始，按量付费。支持加密货币支付。">
+    <style>
+        :root {
+            --primary: #3B82F6;
+            --primary-dark: #2563EB;
+            --bg: #0F172A;
+            --bg-card: #1E293B;
+            --text: #F1F5F9;
+            --text-muted: #94A3B8;
+            --border: #334155;
+            --accent: #10B981;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background: rgba(15,23,42,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav a {
+            margin-left: 24px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        nav a:hover { color: var(--text); }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--border);
+            color: var(--text);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 24px 80px;
+            background: radial-gradient(ellipse at 50% 0%, rgba(59,130,246,0.15) 0%, transparent 60%);
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 60px);
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .section > p {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+        }
+
+        /* API Cards */
+        .api-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .api-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px;
+            transition: all 0.3s;
+        }
+
+        .api-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .api-card .icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .api-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .api-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .api-card .endpoint {
+            background: #0F172A;
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-family: 'SF Mono', 'Menlo', monospace;
+            font-size: 13px;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .api-card .price {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .api-card .price span {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* Code Example */
+        .code-block {
+            background: #0F172A;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            overflow-x: auto;
+            font-family: 'SF Mono', 'Menlo', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+            color: #E2E8F0;
+            margin-top: 24px;
+        }
+
+        .code-block .keyword { color: #93C5FD; }
+        .code-block .string { color: #86EFAC; }
+        .code-block .comment { color: #64748B; }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            box-shadow: 0 0 40px rgba(59,130,246,0.1);
+        }
+
+        .pricing-card h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .pricing-card .price-amount {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .pricing-card .price-unit {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 24px 0;
+            text-align: left;
+        }
+
+        .pricing-card ul li {
+            padding: 8px 0;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .pricing-card ul li::before {
+            content: "✓ ";
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            color: var(--text-muted);
+            font-size: 14px;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="logo">Quick<span>API</span></div>
+        <nav>
+            <a href="#">产品</a>
+            <a href="#">文档</a>
+            <a href="#">定价</a>
+            <a href="#">状态</a>
+        </nav>
+        <div>
+            <a href="#" class="btn btn-outline" style="padding:8px 20px; font-size:13px;">控制台</a>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>三个API接口，<br><span class="gradient-text">即插即用的AI能力</span></h1>
+    <p>文本摘要、多语翻译、SEO分析 — 无需训练模型，一个POST请求搞定。免费额度开始，按量付费。</p>
+    <div style="display:flex; gap:12px; justify-content:center;">
+        <a href="#" class="btn btn-primary">免费开始 →</a>
+        <a href="#" class="btn btn-outline">查看文档</a>
+    </div>
+</section>
+
+<section class="section">
+    <h2>API 产品</h2>
+    <p>简洁、快速、实惠的AI微服务</p>
+
+    <div class="api-cards">
+        <div class="api-card">
+            <div class="icon">📝</div>
+            <h3>智能文本摘要</h3>
+            <p>将长文章、报告、论文自动压缩为简洁摘要。支持自定义摘要长度和焦点。</p>
+            <div class="endpoint">POST /v1/summarize</div>
+            <div class="price">¥0.01<span>/千字</span></div>
+            <p style="font-size:12px; color: var(--accent); margin-top:4px;">每月前500次免费</p>
+        </div>
+
+        <div class="api-card">
+            <div class="icon">🌍</div>
+            <h3>多语翻译</h3>
+            <p>支持50+语言的优质翻译。特别优化了中英、中日、中韩互译质量。</p>
+            <div class="endpoint">POST /v1/translate</div>
+            <div class="price">¥0.02<span>/千字</span></div>
+            <p style="font-size:12px; color: var(--accent); margin-top:4px;">每月前500次免费</p>
+        </div>
+
+        <div class="api-card">
+            <div class="icon">🔍</div>
+            <h3>SEO关键词分析</h3>
+            <p>输入主题，输出关联关键词、搜索量预估、竞争度分析、内容建议。</p>
+            <div class="endpoint">POST /v1/seo-keywords</div>
+            <div class="price">¥0.03<span>/次</span></div>
+            <p style="font-size:12px; color: var(--accent); margin-top:4px;">每月前100次免费</p>
+        </div>
+    </div>
+
+    <div class="code-block">
+<span class="comment"># 一行代码调用文本摘要</span>
+<span class="keyword">curl</span> -X POST https://api.quickapi.dev/v1/summarize \
+  -H <span class="string">"Authorization: Bearer YOUR_API_KEY"</span> \
+  -H <span class="string">"Content-Type: application/json"</span> \
+  -d <span class="string">'{"text": "你的长文本内容...", "max_length": 200}'</span>
+
+<span class="comment"># 响应</span>
+{
+  <span class="string">"summary"</span>: <span class="string">"简洁的摘要内容..."</span>,
+  <span class="string">"original_length"</span>: 1523,
+  <span class="string">"summary_length"</span>: 187,
+  <span class="string">"cost"</span>: 0.015,
+  <span class="string">"remaining_free"</span>: 498
+}
+    </div>
+</section>
+
+<section class="section" style="background: var(--bg-card); max-width: 100%;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+        <h2>定价方案</h2>
+        <p>透明定价，用多少付多少。支持加密货币支付</p>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>免费版</h3>
+                <div class="price-amount">¥0</div>
+                <div class="price-unit">/月</div>
+                <ul>
+                    <li>500次摘要/月</li>
+                    <li>500次翻译/月</li>
+                    <li>100次SEO分析/月</li>
+                    <li>10 请求/分钟</li>
+                    <li>邮件支持</li>
+                </ul>
+                <a href="#" class="btn btn-outline" style="width:100%;">免费开始</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <h3>专业版</h3>
+                <div class="price-amount">¥19</div>
+                <div class="price-unit">/月</div>
+                <ul>
+                    <li>10,000次摘要/月</li>
+                    <li>10,000次翻译/月</li>
+                    <li>2,000次SEO分析/月</li>
+                    <li>100 请求/分钟</li>
+                    <li>优先支持</li>
+                    <li>SLA 99.9%</li>
+                </ul>
+                <a href="#" class="btn btn-primary" style="width:100%;">开始订阅</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3>企业版</h3>
+                <div class="price-amount">¥99</div>
+                <div class="price-unit">/月</div>
+                <ul>
+                    <li>无限次调用</li>
+                    <li>1000 请求/分钟</li>
+                    <li>专属API实例</li>
+                    <li>24/7技术支持</li>
+                    <li>自定义模型调优</li>
+                    <li>SLA 99.99%</li>
+                </ul>
+                <a href="#" class="btn btn-outline" style="width:100%;">联系我们</a>
+            </div>
+        </div>
+
+        <p style="text-align:center; margin-top:24px; color: var(--text-muted); font-size:14px;">
+            所有方案支持加密货币支付（BTC, ETH, USDT, USDC）— 无需KYC
+        </p>
+    </div>
+</section>
+
+<footer>
+    <p>QuickAPI © 2026 | 由 AI 创业代理构建 | 接受加密货币支付</p>
+    <p style="margin-top:8px;">支付由 OrbChain / WolvPay 提供技术支持 | 0.4-1% 手续费</p>
+</footer>
+
+</body>
+</html>
